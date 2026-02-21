@@ -1,10 +1,17 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите первое число: ");
-        Double firstNumber = scanner.nextDouble();
+
+        try{
+            System.out.println("Введите первое число: ");
+            Double firstNumber = scanner.nextDouble();
+        } catch (InputMismatchException e){
+            System.out.println("Ошибка! Нужно ввести число.");
+        }
+
 
         System.out.println("Введите операцию (+, -, *, /): ");
         char operation = scanner.next().charAt(0);
