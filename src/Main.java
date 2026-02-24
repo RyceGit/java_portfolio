@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Scratch {
+class Main {
     public static void main(String[] args) {
 
         //### Переменные ###
