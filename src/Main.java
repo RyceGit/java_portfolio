@@ -1,41 +1,65 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Main {
+class Scratch {
     public static void main(String[] args) {
+
+        //### Переменные ###
+        double firstNumber;
+        double secondNumber;
+        char operation;
+        double result;
+
+        //### Сканер ###
         Scanner scanner = new Scanner(System.in);
 
-        try{
-            System.out.println("Введите первое число: ");
-            Double firstNumber = scanner.nextDouble();
-        } catch (InputMismatchException e){
-            System.out.println("Ошибка! Нужно ввести число.");
-        }
+        //### Работа с первым числом ###
+        System.out.println("Введите первое число: ");
+        while (true) {
 
-
-        System.out.println("Введите операцию (+, -, *, /): ");
-        char operation = scanner.next().charAt(0);
-
-        System.out.println("Введите второе число: ");
-        Double secondNumber = scanner.nextDouble();
-
-
-        double resualt = 0;
-
-        switch (operation) {
-            case '+' -> resualt = firstNumber + secondNumber;
-            case '-' -> resualt = firstNumber - secondNumber;
-            case '*' -> resualt = firstNumber * secondNumber;
-            case '/' -> resualt = firstNumber / secondNumber;
-            default -> {
-                System.out.println("Ошибка: неверная операция или деление на ноль!");
-                return;
+            try {
+                firstNumber = scanner.nextDouble();
+                break;
+            } catch (Exception e) {
+                scanner.nextLine();
+                System.out.println("Некорректное число. Введите еще раз: ");
             }
 
-        };
-        System.out.println(firstNumber + " " + operation + " " + secondNumber + " = " + resualt);
+        }
+        //### Работа с оператором ###
+        System.out.println("Введите операцию (+, -, *, /): ");
+        while (true) {
+            operation = scanner.next().charAt(0);
+            if (operation == '+' || operation == '-' ||
+                    operation == '*' || operation == '/') {
+                break;
+            } else {
+                System.out.println("Некорректный оператор. Введите еще раз: ");
+            }
+
+        }
+        //### Работа со вторым числом ###
+        System.out.println("Введите второе число: ");
+        while (true) {
+            try {
+                secondNumber = scanner.nextDouble();
+                break;
+            } catch (Exception e) {
+                scanner.nextLine();
+                System.out.println("Некорректное число. Введите еще раз: ");
+            }
+        }
+        //### Операции ###
+        switch (operation) {
+            case '+' -> result = firstNumber + secondNumber;
+            case '-' -> result = firstNumber - secondNumber;
+            case '*' -> result = firstNumber * secondNumber;
+            case '/' -> result = firstNumber / secondNumber;
+            default -> throw new IllegalStateException("Ошибка оператора");
+        }
+        //### Вывод ответа ###
+        System.out.println(firstNumber + " " + operation + " " + secondNumber + " = " + result);
+
+        //### Выход и подтверждение ###
+
     }
 }
-
-
-
