@@ -1,18 +1,18 @@
 import java.util.Scanner;
 
-class Main {
+public class Main {
     public static void main(String[] args) {
 
-        //### Переменные ###
+        // ### Переменные ###
         double firstNumber;
         double secondNumber;
         char operation;
         double result;
 
-        //### Сканер ###
+        // ### Сканер ###
         Scanner scanner = new Scanner(System.in);
 
-        //### Работа с первым числом ###
+        // ### Работа с первым числом ###
         System.out.println("Введите первое число: ");
         while (true) {
 
@@ -25,7 +25,7 @@ class Main {
             }
 
         }
-        //### Работа с оператором ###
+        // ### Работа с оператором ###
         System.out.println("Введите операцию (+, -, *, /): ");
         while (true) {
             operation = scanner.next().charAt(0);
@@ -37,7 +37,7 @@ class Main {
             }
 
         }
-        //### Работа со вторым числом ###
+        // ### Работа со вторым числом ###
         System.out.println("Введите второе число: ");
         while (true) {
             try {
@@ -48,7 +48,7 @@ class Main {
                 System.out.println("Некорректное число. Введите еще раз: ");
             }
         }
-        //### Операции ###
+        // ### Операции ###
         switch (operation) {
             case '+' -> result = firstNumber + secondNumber;
             case '-' -> result = firstNumber - secondNumber;
@@ -56,10 +56,10 @@ class Main {
             case '/' -> result = firstNumber / secondNumber;
             default -> throw new IllegalStateException("Ошибка оператора");
         }
-        //### Вывод ответа ###
+        // ### Вывод ответа ###
         System.out.println(firstNumber + " " + operation + " " + secondNumber + " = " + result);
 
-        //### Выход и подтверждение ###
+        // ### Выход и подтверждение ###
 
     }
 }

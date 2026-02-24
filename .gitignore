@@ -1,4 +1,5 @@
 ﻿GEMINI.md
 out/
 .idea/
+.vscode
 *.class
