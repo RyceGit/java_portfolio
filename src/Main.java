@@ -68,13 +68,13 @@ public class Main {
             System.out.println(firstNumber + " " + operation + " " + secondNumber + " = " + result);
 
             // ### Выход и подтверждение ###
+            scanner.nextLine();
             while (true) {
                 System.out.println("Продолжить? (да/нет): ");
-                scanner.nextLine();
                 exit = scanner.nextLine();
                 if (exit.equals("да")) {
                     break;
-                } else if (exit.equals("нет")) {
+                }  if (exit.equals("нет")) {
                     return;
                 }
             }
