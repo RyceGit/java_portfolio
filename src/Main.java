@@ -12,29 +12,32 @@ public class Main {
 
         // ### Сканер ###
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Для выхода в любой момент введите 'exit'");
         while (true) {
             // ### Работа с первым числом ###
             System.out.println("Введите первое число: ");
             while (true) {
                 try {
-                    String input = scanner.nextLine().split(" ")[0];
+                    String input = scanner.nextLine().trim().split(" ")[0];
                     if (input.equals("exit")){
                         return;
                     }
                     firstNumber = Double.parseDouble(input);
                     break;
-                } catch (Exception e) {
+                } catch (NumberFormatException e) {
                     System.out.println("Некорректное число. Введите еще раз: ");
                 }
-
             }
             // ### Работа с оператором ###
             System.out.println("Введите операцию (+, -, *, /): ");
             while (true) {
-                try{
-                    String input = scanner.nextLine().split(" ")[0];
-                    if (input.equals("exit")){
+                    String input = scanner.nextLine().trim().split(" ")[0];
+                    if (input.equals("exit")) {
                         return;
+                    }
+                    if (input.isEmpty()) {
+                        System.out.println("Вы ничего не ввели. Введите операцию: ");
+                        continue;
                     }
                     operation = input.charAt(0);
                     if (operation == '+' || operation == '-' ||
@@ -43,17 +46,12 @@ public class Main {
                     } else {
                         System.out.println("Некорректный оператор. Введите еще раз: ");
                     }
-                }catch (Exception e){
-                    System.out.println("Пустой ввод. Введите оператор (+, -, *, /): ");
-                }
-
-
             }
             // ### Работа со вторым числом ###
             System.out.println("Введите второе число: ");
             while (true) {
                 try {
-                    String input = scanner.nextLine().split(" ")[0];
+                    String input = scanner.nextLine().trim().split(" ")[0];
                     if (input.equals("exit")){
                         return;
                     }
@@ -64,7 +62,7 @@ public class Main {
                         continue;
                     }
                     break;
-                } catch (Exception e) {
+                } catch (NumberFormatException e) {
                     System.out.println("Некорректное число. Введите еще раз: ");
                 }
 
@@ -83,10 +81,10 @@ public class Main {
             // ### Выход и подтверждение ###
             while (true) {
                 System.out.println("Продолжить? (да/нет): ");
-                exit = scanner.nextLine();
+                exit = scanner.nextLine().trim();
                 if (exit.equals("да")) {
                     break;
-                }  if (exit.equals("нет")) {
+                }  if (exit.equals("нет") || exit.equals("exit")) {
                     return;
                 }
             }
