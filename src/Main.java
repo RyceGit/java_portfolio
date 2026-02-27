@@ -41,6 +41,7 @@ public class Main {
                         continue;
                     }
                     operation = readOperator(input);
+
                     if (operation == '+' || operation == '-' ||
                             operation == '*' || operation == '/') {
                         break;
@@ -68,6 +69,8 @@ public class Main {
                 }
 
             }
+            // ### Подсчет ###
+            result = calculate(operation, firstNumber,secondNumber);
             // ### Вывод ответа ###
             System.out.println(firstNumber + " " + operation + " " + secondNumber + " = " + result);
 
@@ -91,7 +94,7 @@ public class Main {
     public static char readOperator(String allOperators){
         return allOperators.charAt(0);
     }
-    public static double readOperator ( char operation, double firstNumber, double secondNumber){
+    public static double calculate ( char operation, double firstNumber, double secondNumber){
         double result;
         switch (operation) {
             case '+' -> result = firstNumber + secondNumber;
