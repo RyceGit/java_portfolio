@@ -7,8 +7,9 @@ public class Main {
         double firstNumber;
         double secondNumber;
         char operation;
-        double result;
+        double result = 0;
         String exit;
+
 
         // ### Сканер ###
         Scanner scanner = new Scanner(System.in);
@@ -22,7 +23,7 @@ public class Main {
                     if (input.equals("exit")){
                         return;
                     }
-                    firstNumber = Double.parseDouble(input);
+                    firstNumber = readDouble(input);
                     break;
                 } catch (NumberFormatException e) {
                     System.out.println("Некорректное число. Введите еще раз: ");
@@ -39,7 +40,7 @@ public class Main {
                         System.out.println("Вы ничего не ввели. Введите операцию: ");
                         continue;
                     }
-                    operation = input.charAt(0);
+                    operation = readOperator(input);
                     if (operation == '+' || operation == '-' ||
                             operation == '*' || operation == '/') {
                         break;
@@ -55,7 +56,7 @@ public class Main {
                     if (input.equals("exit")){
                         return;
                     }
-                    secondNumber = Double.parseDouble(input);
+                    secondNumber = readDouble(input);
                     //### Деление на ноль ###
                     if (operation == '/' && secondNumber == 0) {
                         System.out.println("Нельзя делить на ноль. Введите другое число: ");
@@ -66,14 +67,6 @@ public class Main {
                     System.out.println("Некорректное число. Введите еще раз: ");
                 }
 
-            }
-            // ### Операции ###
-            switch (operation) {
-                case '+' -> result = firstNumber  + secondNumber;
-                case '-' -> result = firstNumber  - secondNumber;
-                case '*' -> result = firstNumber  * secondNumber;
-                case '/' -> result = firstNumber  / secondNumber;
-                default -> throw new IllegalStateException("Ошибка оператора");
             }
             // ### Вывод ответа ###
             System.out.println(firstNumber + " " + operation + " " + secondNumber + " = " + result);
@@ -89,5 +82,24 @@ public class Main {
                 }
             }
         }
+    }
+
+    //    ### Парсинг из стринга в дабл ###
+    public static Double readDouble(String string){
+        return Double.parseDouble(string);
+    }
+    public static char readOperator(String allOperators){
+        return allOperators.charAt(0);
+    }
+    public static double readOperator ( char operation, double firstNumber, double secondNumber){
+        double result;
+        switch (operation) {
+            case '+' -> result = firstNumber + secondNumber;
+            case '-' -> result = firstNumber - secondNumber;
+            case '*' -> result = firstNumber * secondNumber;
+            case '/' -> result = firstNumber / secondNumber;
+            default -> throw new IllegalStateException("Ошибка оператора");
+        }
+        return result;
     }
 }
