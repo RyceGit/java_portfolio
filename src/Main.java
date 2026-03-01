@@ -2,7 +2,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
+// Создаем объект нашего помощника и передаем ему "инструмент" (scanner)
+        InputReader reader = new InputReader(scanner);
         // ### Переменные ###
         double firstNumber;
         double secondNumber;
@@ -29,6 +30,7 @@ public class Main {
                     System.out.println("Некорректное число. Введите еще раз: ");
                 }
             }
+
             // ### Работа с оператором ###
             System.out.println("Введите операцию (+, -, *, /): ");
             while (true) {
