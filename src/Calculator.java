@@ -1,6 +1,6 @@
 public class Calculator {
 
-    public  double calculate ( char operation, double firstNumber, double secondNumber){
+    public static double calculate(char operation, double firstNumber, double secondNumber){
         double result;
         switch (operation) {
             case '+' -> result = firstNumber + secondNumber;

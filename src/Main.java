@@ -17,7 +17,9 @@ public class Main {
         secondNumber.readNextDouble();
         System.out.println(secondNumber.returnNumber());
 
-        Calculator calculator (operation,firstNumber, secondNumber);
+
+        double result = Calculator.calculate(operation.returnOperator(), firstNumber.returnNumber(),secondNumber.returnNumber());
+        System.out.println(result);
 
 //TODO:
     }

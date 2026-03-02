@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 //### Класс для работы с консолью ###
-public class InputReader {
+public static class InputReader {
 private final Scanner scanner;
 double number;
 char operation;
