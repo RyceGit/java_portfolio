@@ -1,13 +1,19 @@
 public class Calculator {
 
     public static double calculate(char operation, double firstNumber, double secondNumber){
-        double result;
+        double result = 0;
         switch (operation) {
             case '+' -> result = firstNumber + secondNumber;
             case '-' -> result = firstNumber - secondNumber;
             case '*' -> result = firstNumber * secondNumber;
-            case '/' -> result = firstNumber / secondNumber;
-            default -> throw new IllegalStateException("Ошибка оператора");
+            case '/' -> {
+                if (secondNumber == 0){
+                    throw new ArithmeticException("Ошибка оператора");
+                } else {
+                     result = firstNumber / secondNumber;
+                }
+            }
+                default -> throw new IllegalStateException("Ошибка оператора");
         }
         return result;
     }
