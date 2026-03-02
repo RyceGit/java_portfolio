@@ -24,7 +24,7 @@ public class Main {
                     double result = Calculator.calculate(operator, firstNumber, secondNumber);
                     System.out.println("Результат: " + result);
                 } catch (ArithmeticException e) {
-                    System.out.println("Делить на ноль нельзя, введите число еще раз: ");
+                    System.out.println(e.getMessage());
                     continue;
                 }
                 break;

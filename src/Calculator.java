@@ -8,7 +8,7 @@ public class Calculator {
             case '*' -> result = firstNumber * secondNumber;
             case '/' -> {
                 if (secondNumber == 0){
-                    throw new ArithmeticException("Ошибка оператора");
+                    throw new ArithmeticException("Делить на ноль нельзя, введите число еще раз: ");
                 } else {
                      result = firstNumber / secondNumber;
                 }
