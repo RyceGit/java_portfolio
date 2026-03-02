@@ -6,5 +6,8 @@ public class Main {
         System.out.println("Введите первое число: ");
         first.readNextDouble();
         System.out.println(first.returnNumber());
+
+
+
     }
 }
