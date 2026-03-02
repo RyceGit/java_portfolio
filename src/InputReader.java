@@ -48,6 +48,9 @@ char operation;
     public Double returnNumber(){
         return number;
     }
+    public char returnOperator(){
+        return operation;
+    }
 
 
 
