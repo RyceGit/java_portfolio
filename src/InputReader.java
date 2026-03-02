@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 //### Класс для работы с консолью ###
 public class InputReader {
-private Scanner scanner = new Scanner(System.in);;
+private final Scanner scanner;
 double number;
 char operation;
 
@@ -17,7 +17,7 @@ char operation;
                 if (input.equals("exit")){
                     return;
                 }
-                number = readDouble(input);
+                number = Double.parseDouble(input);
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Некорректное число. Введите еще раз: ");
@@ -34,7 +34,7 @@ char operation;
                 System.out.println("Вы ничего не ввели. Введите операцию: ");
                 continue;
             }
-            operation = readOperator(input);
+            operation = input.charAt(0);
 
             if (operation == '+' || operation == '-' ||
                     operation == '*' || operation == '/') {
@@ -44,15 +44,11 @@ char operation;
             }
         }
     }
-    public static char readOperator(String allOperators){
-        return allOperators.charAt(0);
-    }
+
     public Double returnNumber(){
         return number;
     }
-    public  Double readDouble(String string){
-        return Double.parseDouble(string);
-    }
+
 
 
 }
