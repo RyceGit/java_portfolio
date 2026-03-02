@@ -1,16 +1,15 @@
 import java.util.Scanner;
 
-//### Класс для работы с консолью ###
-public static class InputReader {
-private final Scanner scanner;
-double number;
-char operation;
+public class InputReader {
 
-    public InputReader() {
-        scanner = new Scanner(System.in);
+public static Scanner scanner = new Scanner(System.in);
+static double number;
+static char operation;
+
+    private InputReader() {
     }
 
-    public void readNextDouble() {
+    public static void readNextDouble() {
         while (true) {
             try {
                 String input = scanner.nextLine().trim().split(" ")[0];
@@ -24,7 +23,7 @@ char operation;
             }
         }
     }
-    public void readNextOperation(){
+    public static  void readNextOperation(){
         while (true) {
             String input = scanner.nextLine().trim().split(" ")[0];
             if (input.equals("exit")) {
@@ -45,10 +44,10 @@ char operation;
         }
     }
 
-    public Double returnNumber(){
+    public static  Double returnNumber(){
         return number;
     }
-    public char returnOperator(){
+    public static  char returnOperator(){
         return operation;
     }
 

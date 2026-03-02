@@ -1,26 +1,22 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        InputReader firstNumber = new InputReader();
-        System.out.println("Введите первое число: ");
-        firstNumber.readNextDouble();
-        System.out.println(firstNumber.returnNumber());
+        System.out.println("Ведите первое число: ");
+        InputReader.readNextDouble();
+        double firstNumber = InputReader.returnNumber();
 
-        InputReader operation = new InputReader();
-        System.out.println("Введите оператор: ");
-        operation.readNextOperation();
-        System.out.println(operation.returnOperator());
+        System.out.println("Ведите оператор(+, -, *, /): ");
+        InputReader.readNextOperation();
+        char operator = InputReader.returnOperator();
 
-        InputReader secondNumber = new InputReader();
-        System.out.println("Введите первое число: ");
-        secondNumber.readNextDouble();
-        System.out.println(secondNumber.returnNumber());
+        System.out.println("Ведите второе число: ");
+        InputReader.readNextDouble();
+        double secondNumber = InputReader.returnNumber();
 
-
-        double result = Calculator.calculate(operation.returnOperator(), firstNumber.returnNumber(),secondNumber.returnNumber());
+        System.out.println("Результат: ");
+        double result = Calculator.calculate(operator,firstNumber,secondNumber);
         System.out.println(result);
 
-//TODO:
+
+
     }
 }
