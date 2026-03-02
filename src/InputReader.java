@@ -13,7 +13,7 @@ static char operation;
         while (true) {
             try {
                 String input = scanner.nextLine().trim().split(" ")[0];
-                if (input.equals("exit")){
+                if (input.equalsIgnoreCase("exit")){
                     return false;
                 }
                 number = Double.parseDouble(input);
@@ -26,7 +26,7 @@ static char operation;
     public static  boolean readNextOperation(){
         while (true) {
             String input = scanner.nextLine().trim().split(" ")[0];
-            if (input.equals("exit")) {
+            if (input.equalsIgnoreCase("exit")) {
                 return false ;
             }
             if (input.isEmpty()) {
