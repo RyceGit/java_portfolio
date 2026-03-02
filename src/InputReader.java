@@ -9,25 +9,25 @@ static char operation;
     private InputReader() {
     }
 
-    public static void readNextDouble() {
+    public static boolean readNextDouble() {
         while (true) {
             try {
                 String input = scanner.nextLine().trim().split(" ")[0];
                 if (input.equals("exit")){
-                    return;
+                    return false;
                 }
                 number = Double.parseDouble(input);
-                break;
+                return true;
             } catch (NumberFormatException e) {
                 System.out.println("Некорректное число. Введите еще раз: ");
             }
         }
     }
-    public static  void readNextOperation(){
+    public static  boolean readNextOperation(){
         while (true) {
             String input = scanner.nextLine().trim().split(" ")[0];
             if (input.equals("exit")) {
-                return;
+                return false ;
             }
             if (input.isEmpty()) {
                 System.out.println("Вы ничего не ввели. Введите операцию: ");
@@ -37,7 +37,7 @@ static char operation;
 
             if (operation == '+' || operation == '-' ||
                     operation == '*' || operation == '/') {
-                break;
+                return true;
             } else {
                 System.out.println("Некорректный оператор. Введите еще раз: ");
             }
